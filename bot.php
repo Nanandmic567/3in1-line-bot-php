@@ -398,7 +398,7 @@ elseif ($post_data== 'happy') {
 }
 
 
-else {
+elseif ($msg_type == 'text') {
                     $url = "https://abdul.in.th/callback/91ae31195db0f94a13887dc55b1d7e31.php";
                     $headers = getallheaders();
                     file_put_contents('headers.txt',json_encode($headers, JSON_PRETTY_PRINT));          
@@ -422,29 +422,30 @@ else {
                     $result = curl_exec( $ch );
                     curl_close( $ch );
 } 
-/* else {
-		    $url = "https://abdul.in.th/callback/f2907686d8a234b7298c70c144985c7a.php";
-		    $headers = getallheaders();
-		    $headers['Host'] = "abdul.in.th";
-		    $json_headers = array();
-		    foreach ($headers as $k => $v) {
-		    	  $json_headers[] = $k . ":" . $v;
-   		    }
-		    $inputJSON = file_get_contents('php://input');
-		    $ch = curl_init();
-		    curl_setopt($ch, CURLOPT_URL, $url);
-		    curl_setopt($ch, CURLOPT_POST, 1);
-		    curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
-		    curl_setopt($ch, CURLOPT_POSTFIELDS, $inputJSON);
-		    curl_setopt($ch, CURLOPT_HTTPHEADER, $json_headers);
-		    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-		    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-		    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		    $result = curl_exec($ch);
-		    curl_close($ch);
-		    exit;
-} */
+else {
+                    $url = "https://bots.dialogflow.com/line/6633d72f-e817-44f6-8958-bd99e66fa274/webhook";
+                    $headers = getallheaders();
+                    file_put_contents('headers.txt',json_encode($headers, JSON_PRETTY_PRINT));          
+                    file_put_contents('body.txt',file_get_contents('php://input'));
+                    $headers['Host'] = "bots.dialogflow.com";
+                    $json_headers = array();
+                    foreach($headers as $k=>$v){
+                        $json_headers[]=$k.":".$v;
+                    }
+                    $inputJSON = file_get_contents('php://input');
+                    $ch = curl_init();
+                    curl_setopt( $ch, CURLOPT_URL, $url);
+                    curl_setopt( $ch, CURLOPT_POST, 1);
+                    curl_setopt( $ch, CURLOPT_BINARYTRANSFER, true);
+                    curl_setopt( $ch, CURLOPT_POSTFIELDS, $inputJSON);
+                    curl_setopt( $ch, CURLOPT_HTTPHEADER, $json_headers);
+                    curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 2);
+                    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 1); 
+                    curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+                    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+                    $result = curl_exec( $ch );
+                    curl_close( $ch );
+} 
 }
 if (isset($mreply)) {
     $result = json_encode($mreply);
