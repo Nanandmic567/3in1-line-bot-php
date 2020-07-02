@@ -57,7 +57,7 @@ $reline2 = $reline1['displayName'];
 
 #-------------------------[EVENT TYPE]-------------------------#
 if ($type == 'memberJoined') {
-    $text = "เมื่อมีผู้ใช้เข้ากลุ่ม";
+    $text = "สวัสดีค่ะ ยินดีต้อนรับนะคะ";
         $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -69,7 +69,7 @@ if ($type == 'memberJoined') {
     );
 }
 elseif ($type == 'memberLeft') {
-    $text = "เมื่อมีผู้ใช้ออกกลุ่ม";
+  /*  $text = "เมื่อมีผู้ใช้ออกกลุ่ม";
         $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -78,10 +78,10 @@ elseif ($type == 'memberLeft') {
                 'text' => $text
             )
         )
-    );
+    ); */
 }
 elseif ($type == 'join') {
-      $text = "เมื่อบอทถูกเชิญเข้าห้อง";
+      $text = "ขอเข้าร่วมด้วยนะคะ ฝากเนื้อฝากตัวด้วยค่าา $sourceType ID:: ".$sourceId;
     $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -93,7 +93,7 @@ elseif ($type == 'join') {
     );
 }
 elseif ($type == 'leave') {
-    $text = "เมื่อบอทถูกเตะออกจากห้อง";
+   /* $text = "เมื่อบอทถูกเตะออกจากห้อง";
         $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -102,10 +102,10 @@ elseif ($type == 'leave') {
                 'text' => $text
             )
         )
-    );
+    ); */
 }
 elseif ($type == 'follow') {
-    $text = "เมื่อผู้ใช้กดติดตามบอท";
+    $text = "ขอบคุณที่เป็นเพื่อน และติดตามเราค่ะ^^";
     $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -117,7 +117,7 @@ elseif ($type == 'follow') {
     );
 }
 elseif ($type == 'unfollow') {
-    $text = "เมื่อบอทถูกบล็อค";
+   /* $text = "เมื่อบอทถูกบล็อค";
         $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -126,7 +126,7 @@ elseif ($type == 'unfollow') {
                 'text' => $text
             )
         )
-    );
+    ); */
 }
 #-------------------------[MSG TYPE]-------------------------#
 elseif ($msg_type == 'file') {
@@ -146,7 +146,7 @@ $botDataUserFolder = './user/file/file/' . $userId;
 $fileFullSavePath = $botDataUserFolder . '/' . $ran . $msg_file;
 $fileurl = 'https://twbb2020.herokuapp.com' . $fileFullSavePath;
 file_put_contents($fileFullSavePath,$result);
-  $text = "บันทึกไฟล์เรียบร้อยแล้ว";
+  $text = "บันทึกไฟล์เรียบร้อยแล้วค่าาา วู้!!";
       $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -179,7 +179,7 @@ $botDataUserFolder = './user/file/image/' . $userId;
 $fileFullSavePath = $botDataUserFolder . '/' . $ran . '.jpg';
 $picurl = 'https://twbb2020.herokuapp.com' . $fileFullSavePath;
 file_put_contents($fileFullSavePath,$result);
-  $text = "บันทึกไฟล์รูปภาพเรียบร้อยแล้ว";
+  $text = "บันทึกไฟล์รูปภาพเรียบร้อยแล้วค่าาา วู้!!";
       $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -211,7 +211,7 @@ $botDataUserFolder = './user/file/video/' . $userId;
 $fileFullSavePath = $botDataUserFolder . '/' . $ran . '.mp4';
 $vidurl = 'https://twbb2020.herokuapp.com' . $fileFullSavePath;
 file_put_contents($fileFullSavePath,$result);
-  $text = "บันทึกไฟล์วิดีโอเรียบร้อยแล้ว";
+  $text = "บันทึกไฟล์วิดีโอเรียบร้อยแล้วค่าาา วู้!!";
       $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -243,7 +243,7 @@ $botDataUserFolder = './user/file/audio/' . $userId;
 $fileFullSavePath = $botDataUserFolder . '/' . $ran . '.m4a';
 $audurl = 'https://twbb2020.herokuapp.com' . $fileFullSavePath;
 file_put_contents($fileFullSavePath,$result);
-  $text = "บันทึกไฟล์เสียงเรียบร้อยแล้ว";
+  $text = "บันทึกไฟล์เสียงเรียบร้อยแล้วค่าาา วู้!!";
       $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array(
