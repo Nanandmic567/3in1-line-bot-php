@@ -422,8 +422,7 @@ elseif ($msg_type == 'text') {
                     $result = curl_exec( $ch );
                     curl_close( $ch );
 } 
-elseif ($msg_type == 'text') {
-                    $text = 'df '.$msg_type['text'];
+elseif ($command == 'df') {
                     $url = "https://bots.dialogflow.com/line/6633d72f-e817-44f6-8958-bd99e66fa274/webhook";
                     $headers = getallheaders();
                     file_put_contents('headers.txt',json_encode($headers, JSON_PRETTY_PRINT));          
