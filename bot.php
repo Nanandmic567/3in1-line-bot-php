@@ -5,7 +5,7 @@ require_once('./unirest-php-master/src/Unirest.php');
 #-------------------------[Token]-------------------------#
 $channelAccessToken = 'process.env.ACCESSTOKEN'; 
 $channelSecret = 'process.env.CSECRET';
-$OWMApiKey = 'process.env.OWM_API_KEY';
+$openWMApiKey = 'process.env.OWM_API_KEY';
 #-------------------------[Events]-------------------------#
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $userId     = $client->parseEvents()[0]['source']['userId'];
@@ -296,7 +296,7 @@ array(
 }
 elseif ($msg_type == 'location') {
 
-    $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $msg_latitude . "&lon=" . $msg_longitude . "&lang=th&units=metric&appid=" . $OWMApiKey;
+    $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $msg_latitude . "&lon=" . $msg_longitude . "&lang=th&units=metric&appid=" . $openWMApiKey;
     $response = Unirest\Request::get("$uri");
     $json = json_decode($response->raw_body, true);
     $resulta = $json['name'];
