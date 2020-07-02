@@ -399,11 +399,11 @@ elseif ($post_data== 'happy') {
 
 
 else {
-                    $url = "https://dialogflow.cloud.google.com/v1/integrations/line/webhook/6633d72f-e817-44f6-8958-bd99e66fa274";
+                    $url = "https://bots.dialogflow.com/line/6633d72f-e817-44f6-8958-bd99e66fa274/webhook";
                     $headers = getallheaders();
                     file_put_contents('headers.txt',json_encode($headers, JSON_PRETTY_PRINT));          
                     file_put_contents('body.txt',file_get_contents('php://input'));
-                    $headers['Host'] = "dialogflow.cloud.google.com";
+                    $headers['Host'] = "bots.dialogflow.com";
                     $json_headers = array();
                     foreach($headers as $k=>$v){
                         $json_headers[]=$k.":".$v;
