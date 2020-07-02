@@ -3,8 +3,9 @@
 require_once('./include/line_class.php');
 require_once('./unirest-php-master/src/Unirest.php');
 #-------------------------[Token]-------------------------#
-$channelAccessToken = 'oB+dxq4x/QW0LK5ChAdkW8lA/NB45OZBqL9esFEklV4HE+s0s/uYj87W/pFC8TVux4iE28au22uaTj7by26TAeG+yYwl4bgAvV4xam3djBZRhaC2iYxroQNVYYqyfv84hAsnHS8/Di9m6w7OP8LElQdB04t89/1O/w1cDnyilFU='; 
-$channelSecret = '53166c3cef8967db426b9328f1066bac';
+$channelAccessToken = 'process.env.ACCESSTOKEN'; 
+$channelSecret = 'process.env.CSECRET';
+$OWMApiKey = 'process.env.OWM_API_KEY';
 #-------------------------[Events]-------------------------#
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $userId     = $client->parseEvents()[0]['source']['userId'];
@@ -295,7 +296,7 @@ array(
 }
 elseif ($msg_type == 'location') {
 
-    $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $msg_latitude . "&lon=" . $msg_longitude . "&lang=th&units=metric&appid=bb32ab343bb6e3326f9e1bbd4e4f5d31";
+    $uri = "https://api.openweathermap.org/data/2.5/weather?lat=" . $msg_latitude . "&lon=" . $msg_longitude . "&lang=th&units=metric&appid=" . $OWMApiKey;
     $response = Unirest\Request::get("$uri");
     $json = json_decode($response->raw_body, true);
     $resulta = $json['name'];
@@ -355,6 +356,7 @@ if ($command== 'myid') {
     );
 }
 
+    /*
 elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrcode' || $command== 'QRcode' || $command== 'qrcode') { 
       $url = 'https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl='.$options;
       $mreply = array(
@@ -368,6 +370,7 @@ elseif ($command== 'qr' || $command== 'Qr' || $command== 'QR' || $command== 'Qrc
         )
     );
 }
+    */
 
 elseif ($post_data== 'happy') { 
 
@@ -397,11 +400,11 @@ elseif ($post_data== 'happy') {
 
 
 else {
-                    $url = "https://bots.dialogflow.com/line/246b595f-bd54-4a8f-9776-1ea50cc9b947/webhook";
+                    $url = "https://dialogflow.cloud.google.com/v1/integrations/line/webhook/6633d72f-e817-44f6-8958-bd99e66fa274";
                     $headers = getallheaders();
                     file_put_contents('headers.txt',json_encode($headers, JSON_PRETTY_PRINT));          
                     file_put_contents('body.txt',file_get_contents('php://input'));
-                    $headers['Host'] = "bots.dialogflow.com";
+                    $headers['Host'] = "dialogflow.cloud.google.com";
                     $json_headers = array();
                     foreach($headers as $k=>$v){
                         $json_headers[]=$k.":".$v;
