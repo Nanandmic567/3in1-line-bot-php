@@ -16,6 +16,8 @@ https://medium.com/@itchampclub/php-linebot-x-dialogflow-x-webhook-%E0%B8%97%E0%
 
 - Heroku (หรือเครื่อง Server ทั่วไปก็ได้)
 
+- GitHub
+
 - OpenWeatherMap API (สำหรับสภาพอากาศ)
 
 - โปรแกรม Git หรือ Google Cloud Shell
